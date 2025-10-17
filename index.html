@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Light Up Your Diwali ✨ | Biswajit Sarkar Advocates & IP Attorneys</title>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lora:wght@400;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    overflow: hidden;
+    background: radial-gradient(circle at center, #fffdf5 0%, #fceee2 100%);
+    color: #c9a14d;
+    font-family: 'Playfair Display', serif;
+  }
+
+  .scene {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100vh;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1.8s ease-in-out, transform 10s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    transform: scale(1);
+  }
+
+  .scene.active {
+    opacity: 1;
+    transform: scale(1.05); /* subtle cinematic zoom */
+  }
+
+  .text {
+    font-size: 2rem;
+    color: #5b3a0a;
+    text-shadow: 0 0 20px #ffeccc, 0 0 40px #fff0b5;
+    animation: glow 2s ease-in-out infinite alternate;
+    background: rgba(255,255,255,0.3);
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    backdrop-filter: blur(5px);
+    max-width: 80%;
+  }
+
+  @keyframes glow {
+    from { text-shadow: 0 0 20px #ffdca0, 0 0 30px #fff7d0; }
+    to   { text-shadow: 0 0 30px #fffbe6, 0 0 60px #ffd700; }
+  }
+
+  /* Floating diya/sparkle effect */
+  .particle {
+    position: absolute;
+    bottom: -20px;
+    background: radial-gradient(circle, #ffd966 0%, rgba(255,217,102,0) 70%);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: floatUp linear infinite;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity: 1; }
+    100% { transform: translateY(-120vh) scale(0.5); opacity: 0; }
+  }
+
+  /* Logo styling */
+  .logo {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    width: 180px;
+    opacity: 0.85;
+    transition: opacity 0.5s ease;
+  }
+
+  .logo:hover { opacity: 1; }
+
+  audio { display: none; }
+</style>
+</head>
+
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Scenes -->
+<div class="scene" style="background-image: url('sparkle-bg.jpg');">
+  <div class="text">✨ Light up your Diwali with joy & style! ✨</div>
+</div>
+
+<div class="scene" style="background-image: url('diyas.jpg');">
+  <div class="text">Traditional diyas that brighten every corner…</div>
+</div>
+
+<div class="scene" style="background-image: url('rangoli.jpg');">
+  <div class="text">Vibrant décor to welcome prosperity!</div>
+</div>
+
+<div class="scene" style="background-image: url('sweets.jpg');">
+  <div class="text">Delicious treats to share the love…</div>
+</div>
+
+<div class="scene" style="background-image: url('lights.jpg');">
+  <div class="text">…and sparkling lights to make every moment magical!</div>
+</div>
+
+<div class="scene" style="background-image: url('hamper.jpg');">
+  <div class="text">Celebrate Diwali with happiness, tradition & style! 🪔✨</div>
+</div>
+
+<img src="logo.png" alt="Biswajit Sarkar Advocates and IP Attorneys" class="logo">
+
+<script>
+/* Scene transitions */
+const scenes = document.querySelectorAll('.scene');
+let index = 0;
+const displayTime = 5000; // 5 seconds per scene
+
+function showScene(i) {
+  scenes.forEach((s, j) => s.classList.toggle('active', j === i));
+}
+showScene(0);
+setInterval(() => {
+  index = (index + 1) % scenes.length;
+  showScene(index);
+}, displayTime);
+
+/* Floating sparkles (soft pastel light style) */
+function createParticle() {
+  const particle = document.createElement('div');
+  particle.classList.add('particle');
+  const size = Math.random() * 10 + 10;
+  particle.style.width = `${size}px`;
+  particle.style.height = `${size}px`;
+  particle.style.left = `${Math.random() * window.innerWidth}px`;
+  particle.style.animationDuration = `${4 + Math.random() * 6}s`;
+  document.body.appendChild(particle);
+  setTimeout(() => particle.remove(), 10000);
+}
+
+setInterval(createParticle, 200);
+</script>
+
+</body>
+</html>
