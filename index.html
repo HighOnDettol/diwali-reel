@@ -39,7 +39,7 @@ body{
   transform:scale(1.04);
 }
 
-/* removed milky blur overlay for clearer photos */
+/* clear overlay for crisp images */
 .scene.active::after{
   content:'';
   position:absolute;
@@ -68,19 +68,19 @@ body{
   to{opacity:1;transform:translateY(0);}
 }
 
-/* festive heading font - deeper, richer gold */
+/* festive heading font — deep red gradient */
 .textbox h2{
   font-family:'Yeseva One',serif;
   font-size:2.1rem;
   margin-bottom:0.7rem;
-  background:linear-gradient(90deg,#a06000,#ffb347,#ffd700);
+  background:linear-gradient(90deg,#8b0000,#d94e1f,#ff6347);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   letter-spacing:0.5px;
-  text-shadow:0 0 10px rgba(255,184,77,0.5);
+  text-shadow:0 0 10px rgba(255,100,70,0.4);
 }
 
-/* softer text */
+/* softer paragraph text */
 .textbox p{
   font-size:1.1rem;
   line-height:1.7;
@@ -114,16 +114,16 @@ body{
 .logo:hover{opacity:1;}
 audio{display:none;}
 
-/* final message styling */
+/* final message styling — same festive red tones */
 .wish-text{
   font-family:'Yeseva One',serif;
   font-size:1.3rem;
   margin-top:1.4rem;
-  background:linear-gradient(90deg,#a06000,#ffb347,#ffd700);
+  background:linear-gradient(90deg,#8b0000,#d94e1f,#ff6347);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   letter-spacing:0.3px;
-  text-shadow:0 0 15px rgba(255,200,90,0.7);
+  text-shadow:0 0 15px rgba(255,100,70,0.5);
 }
 </style>
 </head>
