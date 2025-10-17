@@ -102,15 +102,27 @@ body{
 /* logo */
 .logo{
   position:absolute;
-  bottom:25px;
-  right:25px;
-  width:150px;
-  opacity:0.85;
+  bottom:20px;
+  right:20px;
+  width:110px; /* smaller, subtler */
+  opacity:0.8;
   z-index:3;
   transition:opacity 0.4s ease;
 }
 .logo:hover{opacity:1;}
 audio{display:none;}
+
+/* final message styling */
+.wish-text{
+  font-family:'Yeseva One',serif;
+  font-size:1.3rem;
+  margin-top:1.4rem;
+  background:linear-gradient(90deg,#c1811f,#ffcd58,#c1811f);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  letter-spacing:0.3px;
+  text-shadow:0 0 12px rgba(255,218,120,0.6);
+}
 </style>
 </head>
 
@@ -155,10 +167,12 @@ audio{display:none;}
   </div>
 </div>
 
+<!-- closing slide -->
 <div class="scene" style="background-image:url('hamper.jpg')">
   <div class="textbox">
     <h2>Celebrate With Heart</h2>
     <p>From diyas to laughter, from gifts to togetherness — may your Diwali shine as brightly as your spirit. ✨</p>
+    <div class="wish-text">Biswajit Sarkar Advocates — IP Attorneys wish you a<br>happy, safe & joyous Diwali 🪔</div>
   </div>
 </div>
 
