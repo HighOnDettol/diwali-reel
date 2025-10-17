@@ -6,13 +6,13 @@
 <title>✨ Diwali — Festival of Lights ✨</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lora:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&family=Merriweather:wght@400;500&display=swap');
 
 *{margin:0;padding:0;box-sizing:border-box;}
 body{
   overflow:hidden;
   background:#fffaf3;
-  font-family:'Lora',serif;
+  font-family:'Merriweather',serif;
   color:#5b3a0a;
 }
 
@@ -44,34 +44,45 @@ body{
   content:'';
   position:absolute;
   inset:0;
-  background:rgba(255,245,230,0.2);
-  backdrop-filter:blur(3px) brightness(1.05);
+  background:rgba(255,245,230,0.25);
+  backdrop-filter:blur(4px) brightness(1.05);
 }
 
 /* text box styling */
 .textbox{
   position:relative;
   z-index:2;
-  background:rgba(255,255,255,0.45);
+  background:rgba(255,255,255,0.5);
   backdrop-filter:blur(8px);
-  border-radius:1rem;
-  padding:1.2rem 1.8rem;
+  border-radius:1.5rem;
+  padding:1.8rem 2.2rem;
   text-align:center;
-  max-width:80%;
+  max-width:82%;
   color:#4b2907;
-  text-shadow:0 0 15px #fff3b0;
+  text-shadow:0 0 18px #fff6cc;
+  box-shadow:0 0 25px rgba(255,214,102,0.2);
+  border:1px solid rgba(255,215,150,0.4);
   animation:fadein 2s ease forwards;
 }
-@keyframes fadein{from{opacity:0;}to{opacity:1;}}
+@keyframes fadein{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
 
+/* festive heading font */
 .textbox h2{
-  font-family:'Playfair Display',serif;
-  font-size:1.6rem;
-  margin-bottom:0.5rem;
+  font-family:'Yeseva One',serif;
+  font-size:2.1rem;
+  margin-bottom:0.7rem;
+  color:#8b4513;
+  background:linear-gradient(90deg,#b27a20,#ffbf40);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  letter-spacing:0.5px;
 }
+
+/* softer text */
 .textbox p{
-  font-size:0.95rem;
-  line-height:1.5;
+  font-size:1.1rem;
+  line-height:1.7;
+  color:#4b2d08;
 }
 
 /* floating sparkles */
@@ -111,43 +122,43 @@ audio{display:none;}
 <!-- scenes -->
 <div class="scene" style="background-image:url('sparkle-bg.jpg')">
   <div class="textbox">
-    <h2>✨ Diwali — The Festival of Lights ✨</h2>
-    <p>Homes across India glow with lamps and laughter, celebrating the victory of light over darkness and hope over despair.</p>
+    <h2>🪔 Diwali — The Festival of Lights 🪔</h2>
+    <p>Homes across India glow with diyas and laughter, celebrating the triumph of light over darkness and hope over despair.</p>
   </div>
 </div>
 
 <div class="scene" style="background-image:url('diyas1.jpg')">
   <div class="textbox">
     <h2>Lighting Diyas</h2>
-    <p>Each flickering flame invites warmth, clarity, and renewal — a symbol of positivity lighting every heart.</p>
+    <p>Each tiny flame whispers warmth and faith — a symbol of clarity lighting every heart.</p>
   </div>
 </div>
 
 <div class="scene" style="background-image:url('rangoli1.jpg')">
   <div class="textbox">
     <h2>Colors of Welcome</h2>
-    <p>Rangolis bloom at dawn — petals, powders, and patterns greeting prosperity and joy.</p>
+    <p>Rangolis bloom with morning light — petals, powders, and joy greeting prosperity at every doorstep.</p>
   </div>
 </div>
 
 <div class="scene" style="background-image:url('sweets1.jpg')">
   <div class="textbox">
     <h2>Sweet Traditions</h2>
-    <p>Laddus, barfis, and dry fruits — shared as tokens of love, wishing sweetness for the days ahead.</p>
+    <p>Laddus and barfis shared with love — wishing every bond sweetness and peace for the days ahead.</p>
   </div>
 </div>
 
 <div class="scene" style="background-image:url('lights1.jpg')">
   <div class="textbox">
     <h2>Homes Aglow</h2>
-    <p>Fairy lights shimmer like stars brought to earth — a golden reminder that joy always returns.</p>
+    <p>Lanterns shimmer like dreams — streets wrapped in gold, hearts aglow with harmony and joy.</p>
   </div>
 </div>
 
 <div class="scene" style="background-image:url('hamper.jpg')">
   <div class="textbox">
     <h2>Celebrate With Heart</h2>
-    <p>From lamps to laughter, Diwali connects souls in light. May your life shine as brightly as the diyas tonight. 🪔</p>
+    <p>From diyas to laughter, from gifts to togetherness — may your Diwali shine as brightly as your spirit. ✨</p>
   </div>
 </div>
 
@@ -156,7 +167,7 @@ audio{display:none;}
 <script>
 const scenes=document.querySelectorAll('.scene');
 let index=0;
-const displayTime=5000; // ~5s per scene for total 30s
+const displayTime=5000; // ~5s per scene → total ≈30s
 
 function showScene(i){
   scenes.forEach((s,j)=>s.classList.toggle('active',j===i));
