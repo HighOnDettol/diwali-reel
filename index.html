@@ -3,66 +3,79 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Diwali | Festival of Lights ✨</title>
+<title>✨ Diwali — Festival of Lights ✨</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Lora:wght@400;600&display=swap');
 
-* {margin:0; padding:0; box-sizing:border-box;}
-body {
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
   overflow:hidden;
-  background:#fffdf8;
-  font-family:'Poppins',sans-serif;
-  color:#4e2b00;
-  height:100vh;
-  width:100vw;
-  aspect-ratio:9/16;
+  background:#fffaf3;
+  font-family:'Lora',serif;
+  color:#5b3a0a;
 }
 
-/* 9:16 video container */
-#reel {
-  position:relative;
+/* 9:16 aspect ratio for reels */
+.scene{
+  position:absolute;
+  top:0;left:0;
   width:100%;
   height:100vh;
-  overflow:hidden;
-  margin:auto;
+  aspect-ratio:9/16;
+  object-fit:cover;
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  opacity:0;
+  transform:scale(1);
+  transition:opacity 1.5s ease-in-out, transform 8s ease-in-out;
+}
+.scene.active{
+  opacity:1;
+  transform:scale(1.05);
 }
 
-.scene {
-  position:absolute; top:0; left:0;
-  width:100%; height:100%;
-  background-size:cover; background-position:center;
-  display:flex; align-items:center; justify-content:center; flex-direction:column;
-  opacity:0; transform:scale(1);
-  transition:opacity 1s ease-in-out, transform 6s ease-in-out;
+/* dreamy soft glow overlay */
+.scene.active::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(255,245,230,0.2);
+  backdrop-filter:blur(3px) brightness(1.05);
 }
-.scene.active {opacity:1; transform:scale(1.03);}
 
-.textbox {
+/* text box styling */
+.textbox{
+  position:relative;
+  z-index:2;
   background:rgba(255,255,255,0.45);
   backdrop-filter:blur(8px);
-  border-radius:1.2rem;
-  padding:1.5rem 2rem;
+  border-radius:1rem;
+  padding:1.2rem 1.8rem;
   text-align:center;
-  max-width:85%;
+  max-width:80%;
   color:#4b2907;
-  text-shadow:0 0 15px rgba(255,240,180,0.8);
-  animation:fadein 1.5s ease forwards;
+  text-shadow:0 0 15px #fff3b0;
+  animation:fadein 2s ease forwards;
 }
+@keyframes fadein{from{opacity:0;}to{opacity:1;}}
 
-.textbox h2 {
+.textbox h2{
   font-family:'Playfair Display',serif;
-  font-size:2.3rem;
+  font-size:1.6rem;
   margin-bottom:0.5rem;
-  color:#3c1c00;
 }
-.textbox p {
-  font-size:1.3rem;
-  line-height:1.6;
+.textbox p{
+  font-size:0.95rem;
+  line-height:1.5;
 }
 
-/* Floating sparkles */
-.particle {
+/* floating sparkles */
+.particle{
   position:absolute;
   bottom:-20px;
   background:radial-gradient(circle,#ffd966 0%,rgba(255,217,102,0) 70%);
@@ -70,79 +83,80 @@ body {
   opacity:0.7;
   animation:floatUp linear infinite;
 }
-@keyframes floatUp {
-  0% {transform:translateY(0) scale(1); opacity:1;}
-  100% {transform:translateY(-120vh) scale(0.5); opacity:0;}
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(1);opacity:1;}
+  100%{transform:translateY(-120vh) scale(0.5);opacity:0;}
 }
 
-/* Logo */
-.logo {
-  position:absolute; bottom:20px; right:20px;
-  width:160px; opacity:0.85;
-  transition:opacity 0.3s ease;
+/* logo */
+.logo{
+  position:absolute;
+  bottom:25px;
+  right:25px;
+  width:150px;
+  opacity:0.85;
+  z-index:3;
+  transition:opacity 0.4s ease;
 }
-.logo:hover {opacity:1;}
-
-audio {display:none;}
+.logo:hover{opacity:1;}
+audio{display:none;}
 </style>
 </head>
 
 <body>
-<div id="reel">
-  <audio autoplay loop>
-    <source src="music.mp3" type="audio/mpeg">
-  </audio>
+<audio autoplay loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
 
-  <!-- Scenes -->
-  <div class="scene" style="background-image:url('sparkle-bg.jpg')">
-    <div class="textbox">
-      <h2>✨ Diwali — The Festival of Lights ✨</h2>
-      <p>Each autumn, homes across India glow with joy. Diwali celebrates the triumph of light over darkness and love over fear.</p>
-    </div>
+<!-- scenes -->
+<div class="scene" style="background-image:url('sparkle-bg.jpg')">
+  <div class="textbox">
+    <h2>✨ Diwali — The Festival of Lights ✨</h2>
+    <p>Homes across India glow with lamps and laughter, celebrating the victory of light over darkness and hope over despair.</p>
   </div>
-
-  <div class="scene" style="background-image:url('diyas1.jpg')">
-    <div class="textbox">
-      <h2>Lighting Diyas</h2>
-      <p>Families light small clay lamps called diyas, symbols of hope and clarity. They illuminate homes and hearts alike.</p>
-    </div>
-  </div>
-
-  <div class="scene" style="background-image:url('rangoli1.jpg')">
-    <div class="textbox">
-      <h2>Colors of Welcome</h2>
-      <p>Rangolis — vibrant floor designs — greet every visitor. Each color speaks of prosperity, peace, and new beginnings.</p>
-    </div>
-  </div>
-
-  <div class="scene" style="background-image:url('sweets1.jpg')">
-    <div class="textbox">
-      <h2>Sweet Traditions</h2>
-      <p>From laddus to dry fruits, sweets are exchanged as blessings of love and good fortune.</p>
-    </div>
-  </div>
-
-  <div class="scene" style="background-image:url('lights1.jpg')">
-    <div class="textbox">
-      <h2>Homes Aglow</h2>
-      <p>Streets shimmer with lanterns and fairy lights, turning cities into rivers of gold — every sparkle a sign of unity and renewal.</p>
-    </div>
-  </div>
-
-  <div class="scene" style="background-image:url('hamper.jpg')">
-    <div class="textbox">
-      <h2>Celebrate with Heart & Tradition</h2>
-      <p>Diwali is not just a festival — it’s a feeling. From India to the world, may its light reach you too. 🪔</p>
-    </div>
-  </div>
-
-  <img src="logo (2).jpg" class="logo" alt="Biswajit Sarkar Advocates and IP Attorneys">
 </div>
+
+<div class="scene" style="background-image:url('diyas1.jpg')">
+  <div class="textbox">
+    <h2>Lighting Diyas</h2>
+    <p>Each flickering flame invites warmth, clarity, and renewal — a symbol of positivity lighting every heart.</p>
+  </div>
+</div>
+
+<div class="scene" style="background-image:url('rangoli1.jpg')">
+  <div class="textbox">
+    <h2>Colors of Welcome</h2>
+    <p>Rangolis bloom at dawn — petals, powders, and patterns greeting prosperity and joy.</p>
+  </div>
+</div>
+
+<div class="scene" style="background-image:url('sweets1.jpg')">
+  <div class="textbox">
+    <h2>Sweet Traditions</h2>
+    <p>Laddus, barfis, and dry fruits — shared as tokens of love, wishing sweetness for the days ahead.</p>
+  </div>
+</div>
+
+<div class="scene" style="background-image:url('lights1.jpg')">
+  <div class="textbox">
+    <h2>Homes Aglow</h2>
+    <p>Fairy lights shimmer like stars brought to earth — a golden reminder that joy always returns.</p>
+  </div>
+</div>
+
+<div class="scene" style="background-image:url('hamper.jpg')">
+  <div class="textbox">
+    <h2>Celebrate With Heart</h2>
+    <p>From lamps to laughter, Diwali connects souls in light. May your life shine as brightly as the diyas tonight. 🪔</p>
+  </div>
+</div>
+
+<img src="logo (2).jpg" alt="Biswajit Sarkar Advocates and IP Attorneys" class="logo">
 
 <script>
 const scenes=document.querySelectorAll('.scene');
 let index=0;
-const displayTime=4000; // 4s per scene, total ~24s
+const displayTime=5000; // ~5s per scene for total 30s
 
 function showScene(i){
   scenes.forEach((s,j)=>s.classList.toggle('active',j===i));
@@ -153,11 +167,11 @@ setInterval(()=>{
   showScene(index);
 },displayTime);
 
-// Floating sparkles
+// floating sparkles
 function createParticle(){
   const p=document.createElement('div');
   p.classList.add('particle');
-  const size=Math.random()*8+8;
+  const size=Math.random()*10+10;
   p.style.width=`${size}px`;
   p.style.height=`${size}px`;
   p.style.left=`${Math.random()*window.innerWidth}px`;
@@ -165,7 +179,7 @@ function createParticle(){
   document.body.appendChild(p);
   setTimeout(()=>p.remove(),10000);
 }
-setInterval(createParticle,150);
+setInterval(createParticle,180);
 </script>
 </body>
 </html>
