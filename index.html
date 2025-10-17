@@ -32,50 +32,52 @@ body{
   flex-direction:column;
   opacity:0;
   transform:scale(1);
-  transition:opacity 1.5s ease-in-out, transform 8s ease-in-out;
+  transition:opacity 1.2s ease-in-out, transform 7s ease-in-out;
 }
 .scene.active{
   opacity:1;
-  transform:scale(1.05);
+  transform:scale(1.04);
 }
 
-/* dreamy soft glow overlay */
+/* removed milky blur overlay for clearer photos */
 .scene.active::after{
   content:'';
   position:absolute;
   inset:0;
-  background:rgba(255,245,230,0.25);
-  backdrop-filter:blur(4px) brightness(1.05);
+  background:rgba(255,255,255,0.05);
 }
 
 /* text box styling */
 .textbox{
   position:relative;
   z-index:2;
-  background:rgba(255,255,255,0.5);
-  backdrop-filter:blur(8px);
+  background:rgba(255,255,255,0.35);
+  backdrop-filter:blur(5px);
   border-radius:1.5rem;
   padding:1.8rem 2.2rem;
   text-align:center;
   max-width:82%;
   color:#4b2907;
-  text-shadow:0 0 18px #fff6cc;
-  box-shadow:0 0 25px rgba(255,214,102,0.2);
+  text-shadow:0 0 12px #fff0cc;
+  box-shadow:0 0 25px rgba(255,214,102,0.25);
   border:1px solid rgba(255,215,150,0.4);
   animation:fadein 2s ease forwards;
 }
-@keyframes fadein{from{opacity:0;transform:translateY(10px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadein{
+  from{opacity:0;transform:translateY(10px);}
+  to{opacity:1;transform:translateY(0);}
+}
 
-/* festive heading font */
+/* festive heading font - deeper, richer gold */
 .textbox h2{
   font-family:'Yeseva One',serif;
   font-size:2.1rem;
   margin-bottom:0.7rem;
-  color:#8b4513;
-  background:linear-gradient(90deg,#b27a20,#ffbf40);
+  background:linear-gradient(90deg,#a06000,#ffb347,#ffd700);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   letter-spacing:0.5px;
+  text-shadow:0 0 10px rgba(255,184,77,0.5);
 }
 
 /* softer text */
@@ -104,7 +106,7 @@ body{
   position:absolute;
   bottom:20px;
   right:20px;
-  width:110px; /* smaller, subtler */
+  width:110px;
   opacity:0.8;
   z-index:3;
   transition:opacity 0.4s ease;
@@ -117,11 +119,11 @@ audio{display:none;}
   font-family:'Yeseva One',serif;
   font-size:1.3rem;
   margin-top:1.4rem;
-  background:linear-gradient(90deg,#c1811f,#ffcd58,#c1811f);
+  background:linear-gradient(90deg,#a06000,#ffb347,#ffd700);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   letter-spacing:0.3px;
-  text-shadow:0 0 12px rgba(255,218,120,0.6);
+  text-shadow:0 0 15px rgba(255,200,90,0.7);
 }
 </style>
 </head>
@@ -181,7 +183,7 @@ audio{display:none;}
 <script>
 const scenes=document.querySelectorAll('.scene');
 let index=0;
-const displayTime=5000; // ~5s per scene → total ≈30s
+const displayTime=5000; // ~5s per scene
 
 function showScene(i){
   scenes.forEach((s,j)=>s.classList.toggle('active',j===i));
