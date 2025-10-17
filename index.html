@@ -68,16 +68,17 @@ body{
   to{opacity:1;transform:translateY(0);}
 }
 
-/* festive heading font — elegant blue gradient */
+/* festive heading font — refined golden shimmer */
 .textbox h2{
   font-family:'Great Vibes',cursive;
   font-size:2.6rem;
   margin-bottom:0.7rem;
-  background:linear-gradient(90deg,#004aad,#0077c8,#33b1ff);
+  background:linear-gradient(135deg,#d4af37,#f4e5b1,#c9a961,#e8d4a0);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   letter-spacing:1px;
-  text-shadow:0 0 20px rgba(102,178,255,0.5);
+  text-shadow:0 0 20px rgba(212,175,55,0.4);
+  filter:drop-shadow(0 2px 8px rgba(201,169,97,0.3));
 }
 
 /* paragraph text */
@@ -112,23 +113,53 @@ body{
   transition:opacity 0.4s ease;
 }
 .logo:hover{opacity:1;}
+
+/* download button */
+.download-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  z-index:999;
+  background:linear-gradient(135deg,#d4af37,#c9a961);
+  color:#fff;
+  border:none;
+  padding:12px 24px;
+  border-radius:25px;
+  font-family:'Merriweather',serif;
+  font-size:0.95rem;
+  font-weight:500;
+  cursor:pointer;
+  box-shadow:0 4px 15px rgba(212,175,55,0.4);
+  transition:all 0.3s ease;
+}
+.download-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(212,175,55,0.6);
+}
+.download-btn:active{
+  transform:translateY(0);
+}
+
 audio{display:none;}
 
-/* final message styling — festive blue shimmer */
+/* final message styling — refined golden shimmer */
 .wish-text{
   font-family:'Great Vibes',cursive;
   font-size:1.8rem;
   margin-top:1.6rem;
-  background:linear-gradient(90deg,#004aad,#0077c8,#33b1ff);
+  background:linear-gradient(135deg,#d4af37,#f4e5b1,#c9a961,#e8d4a0);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   letter-spacing:0.4px;
-  text-shadow:0 0 18px rgba(102,178,255,0.6);
+  text-shadow:0 0 18px rgba(212,175,55,0.4);
+  filter:drop-shadow(0 2px 8px rgba(201,169,97,0.3));
 }
 </style>
 </head>
 
 <body>
+<button class="download-btn" onclick="recordVideo()">📥 Download as MP4</button>
+
 <audio autoplay loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
@@ -207,6 +238,69 @@ function createParticle(){
   setTimeout(()=>p.remove(),10000);
 }
 setInterval(createParticle,180);
+
+// Video recording function
+async function recordVideo(){
+  const btn=document.querySelector('.download-btn');
+  btn.textContent='🎥 Recording...';
+  btn.disabled=true;
+  
+  // Calculate 9:16 dimensions based on screen
+  const targetWidth=1080;
+  const targetHeight=1920;
+  
+  try{
+    const stream=await navigator.mediaDevices.getDisplayMedia({
+      video:{
+        displaySurface:'browser',
+        width:{ideal:targetWidth},
+        height:{ideal:targetHeight}
+      },
+      audio:false
+    });
+    
+    const mediaRecorder=new MediaRecorder(stream,{
+      mimeType:'video/webm;codecs=vp9',
+      videoBitsPerSecond:8000000
+    });
+    
+    const chunks=[];
+    mediaRecorder.ondataavailable=e=>chunks.push(e.data);
+    
+    mediaRecorder.onstop=()=>{
+      const blob=new Blob(chunks,{type:'video/webm'});
+      const url=URL.createObjectURL(blob);
+      const a=document.createElement('a');
+      a.href=url;
+      a.download=`Diwali_Wishes_${Date.now()}.webm`;
+      a.click();
+      URL.revokeObjectURL(url);
+      
+      stream.getTracks().forEach(track=>track.stop());
+      btn.textContent='✅ Downloaded!';
+      setTimeout(()=>{
+        btn.textContent='📥 Download as MP4';
+        btn.disabled=false;
+      },2000);
+    };
+    
+    // Record full cycle (6 scenes × 5s each)
+    const totalTime=scenes.length*displayTime;
+    mediaRecorder.start();
+    
+    setTimeout(()=>{
+      mediaRecorder.stop();
+    },totalTime+500);
+    
+  }catch(err){
+    console.error('Recording failed:',err);
+    btn.textContent='❌ Recording failed';
+    setTimeout(()=>{
+      btn.textContent='📥 Download as MP4';
+      btn.disabled=false;
+    },2000);
+  }
+}
 </script>
 </body>
 </html>
