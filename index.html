@@ -6,125 +6,195 @@
 <title>Biswajit Sarkar Advocates | Diwali Wishes</title>
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400&family=Samarkan&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Playfair+Display:wght@500;600&family=Samarkan&display=swap" rel="stylesheet">
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
 <style>
+  /* Global Page Style */
   body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom right, #eaf6ff, #ffffff);
-    font-family: 'Poppins', sans-serif;
+    background: #f4faff;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
   }
 
-  .card {
+  /* A4 Card */
+  .a4-card {
     position: relative;
-    width: 80%;
-    max-width: 650px;
-    background: rgba(255, 255, 255, 0.88);
-    border-radius: 25px;
-    box-shadow: 0 0 30px rgba(182, 199, 255, 0.3);
-    border: 2px solid rgba(189, 158, 90, 0.4);
-    padding: 40px 30px;
+    width: 210mm;
+    height: 297mm;
+    background: linear-gradient(to bottom, #f7fbff 0%, #e5f1ff 45%, #d3eaff 100%);
+    border: 2px solid rgba(180, 200, 255, 0.6);
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(160, 180, 255, 0.3);
     text-align: center;
-    backdrop-filter: blur(10px);
+    padding: 40px;
+    box-sizing: border-box;
     overflow: hidden;
   }
 
-  .border-glow {
+  /* Decorative top garland (subtle overlay) */
+  .decor-top {
     position: absolute;
-    top: -2px; left: -2px; right: -2px; bottom: -2px;
-    border-radius: 25px;
-    background: linear-gradient(120deg, #f7d37b, #e9e0b0, #f7d37b);
-    filter: blur(5px);
-    opacity: 0.4;
-    z-index: -1;
+    top: 15px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url('https://i.imgur.com/nwqP7Kq.png') center/contain no-repeat;
+    opacity: 0.25;
   }
 
+  /* Firm logo */
   .logo {
-    width: 120px;
-    height: auto;
-    margin-bottom: 20px;
+    width: 130px;
+    margin-top: 80px;
   }
 
-  h1 {
-    font-family: 'Samarkan', cursive;
-    font-size: 2.8em;
-    color: #c49b1d;
-    text-shadow: 0 0 10px rgba(238, 205, 130, 0.5);
-    margin-bottom: 15px;
+  /* Firm Name */
+  h3 {
+    font-family: 'Playfair Display', serif;
+    color: #003366;
+    font-size: 1.5em;
+    margin-top: 15px;
     letter-spacing: 1px;
   }
 
-  h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.6em;
-    color: #003366;
-    margin-top: 5px;
-    margin-bottom: 15px;
+  h3 small {
+    display: block;
+    font-size: 0.8em;
+    color: #00509e;
+    letter-spacing: 1px;
   }
 
-  p {
-    color: #444;
-    font-size: 1em;
-    line-height: 1.6;
+  /* Happy Diwali */
+  h1 {
+    font-family: 'Samarkan', cursive;
+    color: #cba03e;
+    font-size: 3em;
+    margin-top: 70px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(255, 240, 180, 0.5);
+  }
+
+  /* Supporting line */
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4em;
+    color: #004aad;
     margin-top: 10px;
   }
 
-  footer {
-    margin-top: 25px;
-    font-size: 0.9em;
-    color: #666;
+  /* Diya image */
+  .diya {
+    width: 140px;
+    margin: 25px auto 15px;
   }
 
-  .glow-lights span {
+  /* Main message */
+  p {
+    color: #333;
+    font-size: 1.05em;
+    line-height: 1.7;
+    width: 80%;
+    margin: 10px auto 0;
+  }
+
+  /* Footer */
+  footer {
+    position: absolute;
+    bottom: 45px;
+    width: 100%;
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.4;
+  }
+
+  /* Download Button */
+  .download-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #0052cc;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+  }
+
+  .download-btn:hover {
+    background: #003a94;
+  }
+
+  /* Floating lights for festive effect */
+  .lights span {
     position: absolute;
     width: 10px;
     height: 10px;
     background: radial-gradient(circle, #f7d37b, transparent);
     border-radius: 50%;
-    animation: float 6s infinite ease-in-out;
     opacity: 0.8;
+    animation: float 6s infinite ease-in-out;
   }
 
   @keyframes float {
-    0% { transform: translateY(0px) scale(1); opacity: 0.8; }
-    50% { transform: translateY(-40px) scale(1.2); opacity: 1; }
-    100% { transform: translateY(0px) scale(1); opacity: 0.8; }
+    0% { transform: translateY(0px); opacity: 0.7; }
+    50% { transform: translateY(-30px); opacity: 1; }
+    100% { transform: translateY(0px); opacity: 0.7; }
   }
 </style>
 </head>
 
 <body>
-  <div class="card">
-    <div class="border-glow"></div>
+  <div id="card" class="a4-card">
+    <div class="decor-top"></div>
+    <div class="lights"></div>
 
-    <!-- Place your firm’s logo below -->
+    <!-- Firm Logo -->
     <img src="your-logo.png" alt="Firm Logo" class="logo">
+
+    <h3>BISWAJIT SARKAR ADVOCATES<br><small>IP ATTORNEYS</small></h3>
 
     <h1>✨ Happy Diwali ✨</h1>
     <h2>Wishing You Light, Joy & Prosperity</h2>
-    <p>Biswajit Sarkar Advocates – IP Attorneys<br>wish you a happy, safe and joyous Diwali.</p>
 
-    <footer>© Biswajit Sarkar Advocates | IP Attorneys</footer>
+    <img src="https://i.imgur.com/xhN3rJX.png" alt="Diya" class="diya">
 
-    <!-- Floating Diwali sparkles -->
-    <div class="glow-lights"></div>
+    <p>Wishing you and your loved ones a festival full of happiness, peace, and light.<br>
+    May this Diwali illuminate your path to success and prosperity.</p>
+
+    <footer>Fondest regards,<br><b>Biswajit Sarkar & Team</b><br>© Biswajit Sarkar Advocates | IP Attorneys</footer>
   </div>
 
+  <button class="download-btn" onclick="downloadCard()">⬇ Download as JPG</button>
+
 <script>
-  // Add floating light particles dynamically
-  const container = document.querySelector('.glow-lights');
-  for (let i = 0; i < 12; i++) {
-    const spark = document.createElement('span');
-    spark.style.top = Math.random() * 100 + '%';
-    spark.style.left = Math.random() * 100 + '%';
-    spark.style.animationDelay = (Math.random() * 4) + 's';
-    container.appendChild(spark);
+  // Create floating festive lights dynamically
+  const lightsContainer = document.querySelector('.lights');
+  for (let i = 0; i < 15; i++) {
+    const light = document.createElement('span');
+    light.style.top = Math.random() * 100 + '%';
+    light.style.left = Math.random() * 100 + '%';
+    light.style.animationDelay = (Math.random() * 5) + 's';
+    lightsContainer.appendChild(light);
+  }
+
+  // Download the A4 card as JPG
+  function downloadCard() {
+    const card = document.getElementById("card");
+    html2canvas(card, { scale: 3 }).then(canvas => {
+      const link = document.createElement('a');
+      link.download = 'BiswajitSarkar_DiwaliCard.jpg';
+      link.href = canvas.toDataURL("image/jpeg", 1.0);
+      link.click();
+    });
   }
 </script>
 
