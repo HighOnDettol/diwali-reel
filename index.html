@@ -3,282 +3,130 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>✨ Diwali — Festival of Lights ✨</title>
+<title>Biswajit Sarkar Advocates | Diwali Wishes</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Poppins:wght@300;400&family=Samarkan&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Merriweather:wght@400;500&display=swap');
+  body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #eaf6ff, #ffffff);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+  }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-  overflow:hidden;
-  background:#fffaf3;
-  font-family:'Merriweather',serif;
-  color:#5b3a0a;
-}
+  .card {
+    position: relative;
+    width: 80%;
+    max-width: 650px;
+    background: rgba(255, 255, 255, 0.88);
+    border-radius: 25px;
+    box-shadow: 0 0 30px rgba(182, 199, 255, 0.3);
+    border: 2px solid rgba(189, 158, 90, 0.4);
+    padding: 40px 30px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+  }
 
-/* 9:16 aspect ratio for reels */
-.scene{
-  position:absolute;
-  top:0;left:0;
-  width:100%;
-  height:100vh;
-  aspect-ratio:9/16;
-  object-fit:cover;
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  flex-direction:column;
-  opacity:0;
-  transform:scale(1);
-  transition:opacity 1.2s ease-in-out, transform 7s ease-in-out;
-}
-.scene.active{
-  opacity:1;
-  transform:scale(1.04);
-}
+  .border-glow {
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    border-radius: 25px;
+    background: linear-gradient(120deg, #f7d37b, #e9e0b0, #f7d37b);
+    filter: blur(5px);
+    opacity: 0.4;
+    z-index: -1;
+  }
 
-/* clear overlay for crisp images */
-.scene.active::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:rgba(255,255,255,0.05);
-}
+  .logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 20px;
+  }
 
-/* text box styling */
-.textbox{
-  position:relative;
-  z-index:2;
-  background:rgba(255,255,255,0.35);
-  backdrop-filter:blur(5px);
-  border-radius:1.5rem;
-  padding:1.8rem 2.2rem;
-  text-align:center;
-  max-width:82%;
-  color:#4b2907;
-  text-shadow:0 0 12px #fff0cc;
-  box-shadow:0 0 25px rgba(255,214,102,0.25);
-  border:1px solid rgba(255,215,150,0.4);
-  animation:fadein 2s ease forwards;
-}
-@keyframes fadein{
-  from{opacity:0;transform:translateY(10px);}
-  to{opacity:1;transform:translateY(0);}
-}
+  h1 {
+    font-family: 'Samarkan', cursive;
+    font-size: 2.8em;
+    color: #c49b1d;
+    text-shadow: 0 0 10px rgba(238, 205, 130, 0.5);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+  }
 
-/* festive heading font — deep golden shimmer */
-.textbox h2{
-  font-family:'Great Vibes',cursive;
-  font-size:2.6rem;
-  margin-bottom:0.7rem;
-  background:linear-gradient(135deg,#8B6914,#B8860B,#9B7E2F,#8B6914);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  letter-spacing:1px;
-  text-shadow:0 0 20px rgba(139,105,20,0.6);
-  filter:drop-shadow(0 2px 10px rgba(139,105,20,0.5));
-  -webkit-text-stroke:1.5px #8B0000;
-  paint-order:stroke fill;
-}
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6em;
+    color: #003366;
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
 
-/* paragraph text */
-.textbox p{
-  font-size:1.1rem;
-  line-height:1.7;
-  color:#4b2d08;
-}
+  p {
+    color: #444;
+    font-size: 1em;
+    line-height: 1.6;
+    margin-top: 10px;
+  }
 
-/* floating sparkles */
-.particle{
-  position:absolute;
-  bottom:-20px;
-  background:radial-gradient(circle,#a8d8ff 0%,rgba(168,216,255,0) 70%);
-  border-radius:50%;
-  opacity:0.8;
-  animation:floatUp linear infinite;
-}
-@keyframes floatUp{
-  0%{transform:translateY(0) scale(1);opacity:1;}
-  100%{transform:translateY(-120vh) scale(0.5);opacity:0;}
-}
+  footer {
+    margin-top: 25px;
+    font-size: 0.9em;
+    color: #666;
+  }
 
-/* logo */
-.logo{
-  position:absolute;
-  bottom:20px;
-  right:20px;
-  width:110px;
-  opacity:0.8;
-  z-index:3;
-  transition:opacity 0.4s ease;
-}
-.logo:hover{opacity:1;}
+  .glow-lights span {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #f7d37b, transparent);
+    border-radius: 50%;
+    animation: float 6s infinite ease-in-out;
+    opacity: 0.8;
+  }
 
-audio{display:none;}
-
-/* final message styling — deep golden shimmer */
-.wish-text{
-  font-family:'Great Vibes',cursive;
-  font-size:1.8rem;
-  margin-top:1.6rem;
-  background:linear-gradient(135deg,#8B6914,#B8860B,#9B7E2F,#8B6914);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  letter-spacing:0.4px;
-  text-shadow:0 0 20px rgba(139,105,20,0.6);
-  filter:drop-shadow(0 2px 10px rgba(139,105,20,0.5));
-  -webkit-text-stroke:1.5px #8B0000;
-  paint-order:stroke fill;
-}
+  @keyframes float {
+    0% { transform: translateY(0px) scale(1); opacity: 0.8; }
+    50% { transform: translateY(-40px) scale(1.2); opacity: 1; }
+    100% { transform: translateY(0px) scale(1); opacity: 0.8; }
+  }
 </style>
 </head>
 
 <body>
-<button class="download-btn" onclick="recordVideo()">📥 Download as MP4</button>
+  <div class="card">
+    <div class="border-glow"></div>
 
-<audio autoplay loop>
-  <source src="music.mp3" type="audio/mpeg">
-</audio>
+    <!-- Place your firm’s logo below -->
+    <img src="your-logo.png" alt="Firm Logo" class="logo">
 
-<!-- scenes -->
-<div class="scene" style="background-image:url('sparkle-bg.jpg')">
-  <div class="textbox">
-    <h2>🪔 Diwali — The Festival of Lights 🪔</h2>
-    <p>Homes across India glow with diyas and laughter, celebrating the triumph of light over darkness and hope over despair.</p>
+    <h1>✨ Happy Diwali ✨</h1>
+    <h2>Wishing You Light, Joy & Prosperity</h2>
+    <p>Biswajit Sarkar Advocates – IP Attorneys<br>wish you a happy, safe and joyous Diwali.</p>
+
+    <footer>© Biswajit Sarkar Advocates | IP Attorneys</footer>
+
+    <!-- Floating Diwali sparkles -->
+    <div class="glow-lights"></div>
   </div>
-</div>
-
-<div class="scene" style="background-image:url('diyas1.jpg')">
-  <div class="textbox">
-    <h2>Lighting Diyas</h2>
-    <p>Each tiny flame whispers warmth and faith — a symbol of clarity lighting every heart.</p>
-  </div>
-</div>
-
-<div class="scene" style="background-image:url('rangoli1.jpg')">
-  <div class="textbox">
-    <h2>Colors of Welcome</h2>
-    <p>Rangolis bloom with morning light — petals, powders, and joy greeting prosperity at every doorstep.</p>
-  </div>
-</div>
-
-<div class="scene" style="background-image:url('sweets1.jpg')">
-  <div class="textbox">
-    <h2>Sweet Traditions</h2>
-    <p>Laddus and barfis shared with love — wishing every bond sweetness and peace for the days ahead.</p>
-  </div>
-</div>
-
-<div class="scene" style="background-image:url('lights1.jpg')">
-  <div class="textbox">
-    <h2>Homes Aglow</h2>
-    <p>Lanterns shimmer like dreams — streets wrapped in gold, hearts aglow with harmony and joy.</p>
-  </div>
-</div>
-
-<!-- closing slide -->
-<div class="scene" style="background-image:url('hamper.jpg')">
-  <div class="textbox">
-    <h2>Celebrate With Heart</h2>
-    <p>From diyas to laughter, from gifts to togetherness — may your Diwali shine as brightly as your spirit. ✨</p>
-    <div class="wish-text">Biswajit Sarkar Advocates — IP Attorneys<br>wish you a happy, safe & joyous Diwali 🪔</div>
-  </div>
-</div>
-
-<img src="logo (2).jpg" alt="Biswajit Sarkar Advocates and IP Attorneys" class="logo">
 
 <script>
-const scenes=document.querySelectorAll('.scene');
-let index=0;
-const displayTime=5000; // ~5s per scene
-
-function showScene(i){
-  scenes.forEach((s,j)=>s.classList.toggle('active',j===i));
-}
-showScene(0);
-setInterval(()=>{
-  index=(index+1)%scenes.length;
-  showScene(index);
-},displayTime);
-
-// floating sparkles
-function createParticle(){
-  const p=document.createElement('div');
-  p.classList.add('particle');
-  const size=Math.random()*10+10;
-  p.style.width=`${size}px`;
-  p.style.height=`${size}px`;
-  p.style.left=`${Math.random()*window.innerWidth}px`;
-  p.style.animationDuration=`${4+Math.random()*6}s`;
-  document.body.appendChild(p);
-  setTimeout(()=>p.remove(),10000);
-}
-setInterval(createParticle,180);
-
-// Video recording function
-async function recordVideo(){
-  const btn=document.querySelector('.download-btn');
-  btn.textContent='🎥 Recording...';
-  btn.disabled=true;
-  
-  // Calculate 9:16 dimensions based on screen
-  const targetWidth=1080;
-  const targetHeight=1920;
-  
-  try{
-    const stream=await navigator.mediaDevices.getDisplayMedia({
-      video:{
-        displaySurface:'browser',
-        width:{ideal:targetWidth},
-        height:{ideal:targetHeight}
-      },
-      audio:false
-    });
-    
-    const mediaRecorder=new MediaRecorder(stream,{
-      mimeType:'video/webm;codecs=vp9',
-      videoBitsPerSecond:8000000
-    });
-    
-    const chunks=[];
-    mediaRecorder.ondataavailable=e=>chunks.push(e.data);
-    
-    mediaRecorder.onstop=()=>{
-      const blob=new Blob(chunks,{type:'video/webm'});
-      const url=URL.createObjectURL(blob);
-      const a=document.createElement('a');
-      a.href=url;
-      a.download=`Diwali_Wishes_${Date.now()}.webm`;
-      a.click();
-      URL.revokeObjectURL(url);
-      
-      stream.getTracks().forEach(track=>track.stop());
-      btn.textContent='✅ Downloaded!';
-      setTimeout(()=>{
-        btn.textContent='📥 Download as MP4';
-        btn.disabled=false;
-      },2000);
-    };
-    
-    // Record full cycle (6 scenes × 5s each)
-    const totalTime=scenes.length*displayTime;
-    mediaRecorder.start();
-    
-    setTimeout(()=>{
-      mediaRecorder.stop();
-    },totalTime+500);
-    
-  }catch(err){
-    console.error('Recording failed:',err);
-    btn.textContent='❌ Recording failed';
-    setTimeout(()=>{
-      btn.textContent='📥 Download as MP4';
-      btn.disabled=false;
-    },2000);
+  // Add floating light particles dynamically
+  const container = document.querySelector('.glow-lights');
+  for (let i = 0; i < 12; i++) {
+    const spark = document.createElement('span');
+    spark.style.top = Math.random() * 100 + '%';
+    spark.style.left = Math.random() * 100 + '%';
+    spark.style.animationDelay = (Math.random() * 4) + 's';
+    container.appendChild(spark);
   }
-}
 </script>
+
 </body>
 </html>
